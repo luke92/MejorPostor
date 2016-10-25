@@ -1,0 +1,36 @@
+Programacion III - Universidad Nacional de General Sarmiento
+Trabajo Practico 3: Al mejor postor
+El objetivo del trabajo practico es implementar una aplicacion para gestionar las reservas de
+una sala de ensayos, que se licitan con costos prejados por los usuarios.
+La empresa cuenta con una sala, que se reserva por horas completas durante las 24 horas
+del da. Cada da se reciben las ofertas para el da siguiente, que deben incluir el horario
+deseado (por ejemplo, de 8 a 12 hs) y el monto que la persona esta dispuesta a pagar. Una
+vez recibidas las ofertas, la aplicacion debe determinar que ofertas seleccionar para maximizar
+la ganancia de la empresa, y de modo tal que las ofertas seleccionadas no se superpongan en
+el tiempo. Por ejemplo, supongamos que se reciben estas ofertas:
+1. $ 800 por el horario de 8 a 12 hs.
+2. $ 700 por el horario de 12 a 15 hs.
+3. $ 500 por el horario de 11 a 16 hs.
+4. $ 700 por el horario de 17 a 21 hs.
+5. $ 700 por el horario de 7 a 11 hs.
+Entonces, si se adjudican las ofertas 1, 2 y 4 (que no se superponen entre s), se obtiene una
+ganancia de $ 2.200. La aplicacion implementada debe contar con la siguiente funcionalidad:
+1. Registrar una nueva oferta.
+2. Mostrar las ofertas registradas hasta el momento.
+3. Resolver el problema de adjudicacion, por medio de una heurstica golosa.
+La informacion sobre las ofertas se debe almacenar serializada en un archivo, de modo tal
+que sea recuperada al iniciar cada sesion con la aplicacion. La aplicacion debe contar con una
+interfaz visual y un dise~no adecuado.
+Como objetivos opcionales no obligatorios, se pueden contemplar los siguientes elementos:
+1. Registrar otros datos junto con la oferta, como el nombre del oferente, equipamiento
+que solicita, etc.
+2. Mostrar las ofertas recibidas y adjudicadas sobre un calendario graco.
+3. El problema de maximizar las ganancias se puede resolver en tiempo polinomial! Implementar
+un algoritmo polinomial para el problema y comparar con el resultado de la
+heurstica golosa.
+Condiciones de entrega: El trabajo practico se debe entregar impreso y por mail a los
+docentes de la materia. Ademas del codigo, se debe incluir un documento en el que se describa
+la implementacion y se detallen las decisiones tomadas durante el desarrollo. Todas las clases
+de la capa de negocio deben incluir un conjunto adecuado de tests unitarios. El trabajo
+practico se puede hacer en grupos de hasta tres personas.
+Fecha de entrega: Martes 15 de noviembre.
