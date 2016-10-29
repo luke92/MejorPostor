@@ -1,11 +1,12 @@
-package controller;
+package test.controller;
 
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import model.Oferta;
+import main.controller.Ofertas;
+import main.model.Oferta;
 
 public class OfertasTest {
 	

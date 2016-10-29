@@ -1,9 +1,9 @@
-package controller;
+package main.controller;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import model.Oferta;
+import main.model.Oferta;
 
 public class Ofertas implements Iterable<Oferta> {
 	private ArrayList<Oferta> _ofertas;
