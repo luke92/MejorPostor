@@ -3,22 +3,27 @@ package test.controller;
 
 import static org.junit.Assert.*;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Date;
+import java.util.List;
+
 import org.junit.Test;
 
-import main.controller.Ofertas;
 import main.model.Oferta;
+import main.controller.Ofertas;
 
 public class OfertasTest {
-	
+	private LocalDateTime l = LocalDateTime.now();
 	private Ofertas instancia(){
 		Ofertas o = new Ofertas();
-
-		// cambie el Time por int para probar (porque no se como funciona el Time)
-		o.agregar(new Oferta(8, 12, 800.0, "Juan", null));
-		o.agregar(new Oferta(12, 15, 700.0, "Pedro", null));
-		o.agregar(new Oferta(11, 16, 500.0, "Marta", null));
-		o.agregar(new Oferta(17, 21, 700.0, "Lucas", null));
-		o.agregar(new Oferta(7, 11, 700.0, "Maxi", null));
+		o.agregar(new Oferta(l.withHour(8),l.withHour(11), 800, "GZ", "1158882866", "2 MICS y Teclado"));
+		o.agregar(new Oferta(l.withHour(12), l.withHour(15), 700, "Pedro", null, null));
+		o.agregar(new Oferta(l.withHour(11), l.withHour(16), 500, "Marta", null, null));
+		o.agregar(new Oferta(l.withHour(17), l.withHour(21), 700, "Lucas", null, null));
+		o.agregar(new Oferta(l.withHour(7), l.withHour(11), 700, "Maxi", null, null));
 
 		return o;
 	}
@@ -27,27 +32,27 @@ public class OfertasTest {
 	public void agregarOfertaTest() {
 		Ofertas o = instancia();
 		
-		assertTrue(o.contains(new Oferta(17, 21, 700.0, "Lucas", null)));
-		assertTrue(o.contains(new Oferta(7, 11, 700.0, "Maxi", null)));
+		assertTrue(o.contains(new Oferta(l.withHour(17), l.withHour(21), 700, "Lucas", null, null)));
+		assertTrue(o.contains(new Oferta(l.withHour(7), l.withHour(11), 700, "Maxi", null, null)));
 
-		o.agregar(new Oferta(15, 17, 207.5, "Solana", null));
-		o.agregar(new Oferta(15, 17, 1000.1, "SI no te rindes", null));
+		o.agregar(new Oferta(l.withHour(15), l.withHour(17), 207, "Solana", null, null));
+		o.agregar(new Oferta(l.withHour(15), l.withHour(17), 1000, "SI no te rindes", null,null));
 
-		assertTrue(o.contains(new Oferta(15, 17, 207.5, "Solana", null)));
-		assertTrue(o.contains(new Oferta(15, 17, 1000.1, "SI no te rindes", null)) );
+		assertTrue(o.contains(new Oferta(l.withHour(15), l.withHour(17), 207, "Solana", null,null)));
+		assertTrue(o.contains(new Oferta(l.withHour(15), l.withHour(17), 1000, "SI no te rindes", null,null)) );
 	}
 	
 	@Test
 	public void removerOfertaTest() {
 		Ofertas o = instancia();
 		
-		assertTrue( o.contains( new Oferta(17, 21, 700.0, "Lucas", null)) );
-		o.remover( new Oferta(17, 21, 700.0, "Lucas", null) );
-		assertFalse( o.contains( new Oferta(17, 21, 700.0, "Lucas", null)) );
+		assertTrue( o.contains( new Oferta(l.withHour(17), l.withHour(21), 700, "Lucas", null,null)) );
+		o.remover( new Oferta(l.withHour(17), l.withHour(21), 700, "Lucas", null,null) );
+		assertFalse( o.contains( new Oferta(l.withHour(17), l.withHour(21), 700, "Lucas", null,null)) );
 
-		assertTrue(o.contains(new Oferta(7, 11, 700.0, "Maxi", null)));
-		o.remover(new Oferta(7, 11, 700.0, "Maxi", null));
-		assertFalse(o.contains(new Oferta(7, 11, 700.0, "Maxi", null)));
+		assertTrue(o.contains(new Oferta(l.withHour(7), l.withHour(11), 700, "Maxi", null,null)));
+		o.remover(new Oferta(l.withHour(7), l.withHour(11), 700, "Maxi", null,null));
+		assertFalse(o.contains(new Oferta(l.withHour(7), l.withHour(11), 700, "Maxi", null,null)));
 	}
 
 }

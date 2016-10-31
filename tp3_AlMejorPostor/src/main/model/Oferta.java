@@ -1,75 +1,81 @@
 package main.model;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Oferta 
 {
+	private LocalDateTime _inicio;
+	private LocalDateTime _fin;
+	private int _precio;
+	private String _banda;
+	private String _telefono;
+	private String _facilidades;
 	
-	// TODO: le puse int para probar en el test
-	private int _horaInicio;
-	private int _horaFin;
-	private double _precio;
-	private String _nombre;
-	private List<String> _facilidades;
-	
-	public Oferta(int i, int j, double precio, String nombre, List<String> facilidades)
+	public Oferta(LocalDateTime inicio, LocalDateTime fin, int precio, String banda, String telefono, String facilidades)
 	{
-		_horaInicio = i;
-		_horaFin = j;
+		_inicio = inicio;
+		_fin = fin;
 		_precio = precio;
-		_nombre = nombre;
+		_banda = banda;
+		_telefono = telefono;
 		_facilidades = facilidades;
 	}
-	
-	public int getHoraInicio(){
-		return _horaInicio;
-	}
-	
-	public int getHoraFin(){
-		return _horaFin;
-	}
-	
-	public double getPrecio(){
-		return _precio;
-	}
-	
-	public String getNombre(){
-		return _nombre;
-	}
-	
-	public List<String> facilidades(){
-		return _facilidades;
-	}
-	
+
 	@Override
-	public boolean equals(Object obj) 
-	{
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((_banda == null) ? 0 : _banda.hashCode());
+		result = prime * result + ((_facilidades == null) ? 0 : _facilidades.hashCode());
+		result = prime * result + ((_fin == null) ? 0 : _fin.hashCode());
+		result = prime * result + ((_inicio == null) ? 0 : _inicio.hashCode());
+		result = prime * result + _precio;
+		result = prime * result + ((_telefono == null) ? 0 : _telefono.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		
 		Oferta other = (Oferta) obj;
-		if (_horaInicio != other._horaInicio)
+		if (_banda == null) {
+			if (other._banda != null)
+				return false;
+		} else if (!_banda.equals(other._banda))
 			return false;
-		if (_horaFin != other._horaFin)
+		if (_facilidades == null) {
+			if (other._facilidades != null)
+				return false;
+		} else if (!_facilidades.equals(other._facilidades))
+			return false;
+		if (_fin == null) {
+			if (other._fin != null)
+				return false;
+		} else if (!_fin.equals(other._fin))
+			return false;
+		if (_inicio == null) {
+			if (other._inicio != null)
+				return false;
+		} else if (!_inicio.equals(other._inicio))
 			return false;
 		if (_precio != other._precio)
 			return false;
-		if (_nombre != other._nombre)
+		if (_telefono == null) {
+			if (other._telefono != null)
+				return false;
+		} else if (!_telefono.equals(other._telefono))
 			return false;
-		if (_facilidades != other._facilidades)
-			return false;
-		
 		return true;
 	}
 	
-	@Override
-	public String toString()
-	{
-		return "Nombre: " + _nombre + ". De " + _horaInicio + " a " + _horaFin + ". Precio: " + _precio + ". " + _facilidades ;
-	}
 	
 }
