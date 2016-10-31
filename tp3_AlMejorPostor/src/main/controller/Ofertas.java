@@ -23,16 +23,6 @@ public class Ofertas implements Iterable<Oferta> {
 		_ofertas.remove(o);
 	}
 	
-	public Oferta get(int index)
-	{
-		return _ofertas.get(index);
-	}
-	
-	public ArrayList<Oferta> getOfertas()
-	{
-		return _ofertas;
-	}
-	
 	public int size()
 	{
 		return _ofertas.size();
@@ -47,8 +37,19 @@ public class Ofertas implements Iterable<Oferta> {
 		return false;
 	}
 	
+	public Oferta get(int index)
+	{
+		return _ofertas.get(index);
+	}
+	
+	public ArrayList<Oferta> getOfertas()
+	{
+		return _ofertas;
+	}
+	
 	@Override
-	public Iterator<Oferta> iterator() {
+	public Iterator<Oferta> iterator()
+	{
 		return _ofertas.iterator();
 	}
 	

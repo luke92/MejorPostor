@@ -8,6 +8,11 @@ import javax.swing.JPanel;
 
 public class OptionsForm extends JPanel {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public OptionsForm() 
 	{
 		
@@ -16,9 +21,8 @@ public class OptionsForm extends JPanel {
 	 @Override
 	 public void paintComponent(Graphics g) 
 	 {
-		 
-		 Image fondo = Toolkit.getDefaultToolkit().getImage(OptionsForm.class.getResource("img/fondo.jpg"));
-		 g.drawImage(fondo, 0, 0, this.getWidth(), this.getHeight(), this);  
+		Image fondo = Toolkit.getDefaultToolkit().getImage(OptionsForm.class.getResource("img\fondo.jpg"));
+		g.drawImage(fondo, 0, 0, this.getWidth(), this.getHeight(), this);  
 	 }  
 
 }
