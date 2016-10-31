@@ -7,22 +7,21 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 public class OptionsForm extends JPanel {
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+	Image imagen;
+	String nombre;
 
-	public OptionsForm() 
+	public OptionsForm(String nombre) 
 	{
-		
+		this.nombre= nombre;
 	}
 	
-	 @Override
-	 public void paintComponent(Graphics g) 
+	 public void paint(Graphics g)
 	 {
-		Image fondo = new ImageIcon("img/fondo.jpg").getImage();
-		g.drawImage(fondo, 0, 0, this.getWidth(), this.getHeight(), this);  
+		imagen = new ImageIcon(nombre).getImage();
+		g.drawImage(imagen, 0, 0, this.getWidth(), this.getHeight(), null);
+		setOpaque(false);
+		super.paint(g);
 	 }  
 
 }

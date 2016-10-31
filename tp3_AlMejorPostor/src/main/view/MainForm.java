@@ -13,7 +13,7 @@ public class MainForm
 		juego.setSize(640, 480);
 		juego.setResizable(false);
 
-		juego.add(new OptionsForm());
+		juego.getContentPane().add(new OptionsForm("img/fondo.jpg"));
 
 		juego.setLocationRelativeTo(null);
 		juego.setVisible(true);
