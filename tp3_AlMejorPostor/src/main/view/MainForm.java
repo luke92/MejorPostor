@@ -5,7 +5,8 @@ import javax.swing.WindowConstants;
 
 public class MainForm 
 {
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		JFrame juego = new JFrame();
 		juego.setTitle("Creizi Records Reservas");
 		juego.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
