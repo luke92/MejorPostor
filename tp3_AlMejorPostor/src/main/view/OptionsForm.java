@@ -2,8 +2,8 @@ package main.view;
 
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Toolkit;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 public class OptionsForm extends JPanel {
@@ -21,7 +21,7 @@ public class OptionsForm extends JPanel {
 	 @Override
 	 public void paintComponent(Graphics g) 
 	 {
-		Image fondo = Toolkit.getDefaultToolkit().getImage(OptionsForm.class.getResource("img\fondo.jpg"));
+		Image fondo = new ImageIcon("img/fondo.jpg").getImage();
 		g.drawImage(fondo, 0, 0, this.getWidth(), this.getHeight(), this);  
 	 }  
 
