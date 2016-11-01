@@ -1,8 +1,6 @@
 package main.view;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.util.Properties;
 import java.util.regex.Pattern;
 
 import javax.swing.ImageIcon;
@@ -11,10 +9,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import org.jdatepicker.JDatePicker;
-import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
-import org.jdatepicker.impl.UtilDateModel;
 
 import main.controller.Application;
 
@@ -24,7 +19,6 @@ import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
-import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -33,11 +27,10 @@ public class CargarOfertasForm extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtNombreBanda;
 	private JTextField txtTelefono;
-	private JDatePickerImpl datePicker;
 	private JTextArea txtFacilidades;
-	private JSpinner spnPrecio;
 	private JSpinner spnDesde;
 	private JSpinner spnHasta;
+	private JDatePickerImpl datePicker;
 	/**
 	 * Launch the application.
 	 */
@@ -97,7 +90,7 @@ public class CargarOfertasForm extends JDialog {
 		lblDesde.setBounds(221, 36, 46, 14);
 		contentPanel.add(lblDesde);
 		
-		JSpinner spnDesde = new JSpinner();
+		spnDesde = new JSpinner();
 		spnDesde.setModel(new SpinnerNumberModel(0, 0, 23, 1));
 		spnDesde.setBounds(277, 33, 42, 20);
 		contentPanel.add(spnDesde);
@@ -106,8 +99,8 @@ public class CargarOfertasForm extends JDialog {
 		lblHasta.setBounds(339, 36, 46, 14);
 		contentPanel.add(lblHasta);
 		
-		JSpinner spnHasta = new JSpinner();
-		spnHasta.setModel(new SpinnerNumberModel(0, 0, 23, 1));
+		spnHasta = new JSpinner();
+		spnHasta.setModel(new SpinnerNumberModel(1, 1, 24, 1));
 		spnHasta.setBounds(382, 33, 42, 20);
 		contentPanel.add(spnHasta);
 		
@@ -120,7 +113,7 @@ public class CargarOfertasForm extends JDialog {
 		contentPanel.add(pnlDatePicker);
 		
 		datePicker = CalendarioForm.getPickerToday();
-		pnlDatePicker.add(CalendarioForm.getPickerToday());
+		pnlDatePicker.add(datePicker);
 		
 		JSpinner spnPrecio = new JSpinner();
 		spnPrecio.setModel(new SpinnerNumberModel(new Integer(100), new Integer(100), null, new Integer(100)));
@@ -138,6 +131,8 @@ public class CargarOfertasForm extends JDialog {
 		ImageIcon icon = new ImageIcon("img/add.png");
 		btnAgregarOferta.setIcon(icon);
 		contentPanel.add(btnAgregarOferta);
+		
+		reiniciarCampos();
 	}
 	
 	private void agregarOferta()
@@ -158,6 +153,7 @@ public class CargarOfertasForm extends JDialog {
 		if(txtNombreBanda.getText() == "") return false;
 		if(txtTelefono.getText() == "") return false;
 		if(!Pattern.matches("[0-9]\\d*", txtTelefono.getText())) return false;
+		if(!horarioCorrecto()) return false;
 		return true;
 	}
 	
@@ -166,6 +162,17 @@ public class CargarOfertasForm extends JDialog {
 		txtNombreBanda.setText("");
 		txtTelefono.setText("");
 		txtFacilidades.setText("");
+		spnDesde.setValue(new Integer(0));
+		spnHasta.setValue(new Integer(1));
+	}
+	
+	private boolean horarioCorrecto()
+	{
+		int desde = (Integer) spnDesde.getValue();
+		int hasta = (Integer) spnHasta.getValue();
+		if(desde >= hasta)
+			return false;
+		return true;
 	}
 	
 }
