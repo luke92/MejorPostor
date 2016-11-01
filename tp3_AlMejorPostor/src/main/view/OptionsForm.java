@@ -29,21 +29,20 @@ public class OptionsForm extends JPanel {
 
 		});
 		this.add(btnCargarOfertas);
-		
-		
 	}
-	
-	 public void paint(Graphics g)
-	 {
+	   
+	private void cargarOfertas() 
+	{
+		new CargarOfertasForm().setVisible(true);
+	}
+	 
+
+	public void paint(Graphics g)
+	{
 		imagen = new ImageIcon(rutaImagen).getImage();
 		g.drawImage(imagen, 0, 0, this.getWidth(), this.getHeight(), null);
 		setOpaque(false);
 		super.paint(g);
-	 }  
-	 
-	 private void cargarOfertas() 
-	 {
-			// TODO Auto-generated method stub		
-	}
+	} 
 
 }
