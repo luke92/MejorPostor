@@ -186,7 +186,6 @@ public class CargarOfertasForm extends JDialog {
 	private boolean fechaCorrecta()
 	{
 		String textoFecha = datePicker.getJFormattedTextField().getText().trim();
-		System.out.println(textoFecha);
 		if( textoFecha.isEmpty()) return false;
 		int valor = ComparatorFecha.compareTo(LocalDate.now(),LocalDate.parse(textoFecha));
 		if(valor > 0) return false;
