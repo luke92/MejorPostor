@@ -1,7 +1,7 @@
 package main.view;
 
 import java.awt.BorderLayout;
-import java.util.regex.Pattern;
+import java.time.LocalDate;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,6 +12,8 @@ import javax.swing.border.EmptyBorder;
 import org.jdatepicker.impl.JDatePickerImpl;
 
 import main.controller.Application;
+import main.util.ComparatorFecha;
+import main.util.ExpReg;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -19,11 +21,16 @@ import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class CargarOfertasForm extends JDialog {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtNombreBanda;
 	private JTextField txtTelefono;
@@ -152,8 +159,9 @@ public class CargarOfertasForm extends JDialog {
 	{
 		if(txtNombreBanda.getText() == "") return false;
 		if(txtTelefono.getText() == "") return false;
-		if(!Pattern.matches("[0-9]\\d*", txtTelefono.getText())) return false;
+		if(!ExpReg.containOnlyNumbers(txtTelefono.getText())) return false;
 		if(!horarioCorrecto()) return false;
+		if(!fechaCorrecta()) return false;
 		return true;
 	}
 	
@@ -172,6 +180,16 @@ public class CargarOfertasForm extends JDialog {
 		int hasta = (Integer) spnHasta.getValue();
 		if(desde >= hasta)
 			return false;
+		return true;
+	}
+	
+	private boolean fechaCorrecta()
+	{
+		String textoFecha = datePicker.getJFormattedTextField().getText().trim();
+		System.out.println(textoFecha);
+		if( textoFecha.isEmpty()) return false;
+		int valor = ComparatorFecha.compareTo(LocalDate.now(),LocalDate.parse(textoFecha));
+		if(valor > 0) return false;
 		return true;
 	}
 	
