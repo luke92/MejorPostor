@@ -2,6 +2,8 @@ package main.view;
 
 import java.awt.BorderLayout;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,6 +14,7 @@ import javax.swing.border.EmptyBorder;
 import org.jdatepicker.impl.JDatePickerImpl;
 
 import main.controller.Application;
+import main.model.Oferta;
 import main.util.ComparatorFecha;
 import main.util.ExpReg;
 
@@ -35,6 +38,7 @@ public class CargarOfertasForm extends JDialog {
 	private JTextField txtNombreBanda;
 	private JTextField txtTelefono;
 	private JTextArea txtFacilidades;
+	private JSpinner spnPrecio;
 	private JSpinner spnDesde;
 	private JSpinner spnHasta;
 	private JDatePickerImpl datePicker;
@@ -122,7 +126,7 @@ public class CargarOfertasForm extends JDialog {
 		datePicker = CalendarioForm.getPickerToday();
 		pnlDatePicker.add(datePicker);
 		
-		JSpinner spnPrecio = new JSpinner();
+		spnPrecio = new JSpinner();
 		spnPrecio.setModel(new SpinnerNumberModel(new Integer(100), new Integer(100), null, new Integer(100)));
 		spnPrecio.setBounds(66, 33, 139, 20);
 		contentPanel.add(spnPrecio);
@@ -150,7 +154,7 @@ public class CargarOfertasForm extends JDialog {
 			JOptionPane.showMessageDialog(null, "Algunos campos son Invalidos");
 		else
 		{
-			Application.agregarOferta();
+			Application.agregarOferta(getCampos());
 			reiniciarCampos();
 		}
 	}
@@ -192,4 +196,21 @@ public class CargarOfertasForm extends JDialog {
 		return true;
 	}
 	
+	private Oferta getCampos()
+	{
+		String textoFecha = datePicker.getJFormattedTextField().getText().trim();
+		int desde = (Integer) spnDesde.getValue();
+		int hasta = (Integer) spnHasta.getValue();
+		int precio = (Integer) spnPrecio.getValue();
+		Oferta o = new Oferta(
+				LocalDate.parse(textoFecha),
+				LocalTime.of(desde,0), 
+				LocalTime.of(hasta, 0),
+				precio,
+				txtNombreBanda.getText(),
+				txtTelefono.getText(),
+				txtFacilidades.getText());
+		return o;
+		
+	}
 }

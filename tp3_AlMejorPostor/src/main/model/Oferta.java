@@ -1,18 +1,23 @@
 package main.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Date;
 
 public class Oferta 
 {
-	private LocalDateTime _inicio;
-	private LocalDateTime _fin;
+	private LocalDate _fecha;
+	private LocalTime _inicio;
+	private LocalTime _fin;
 	private int _precio;
 	private String _banda;
 	private String _telefono;
 	private String _facilidades;
 	
-	public Oferta(LocalDateTime inicio, LocalDateTime fin, int precio, String banda, String telefono, String facilidades)
+	public Oferta(LocalDate fecha, LocalTime inicio, LocalTime fin, int precio, String banda, String telefono, String facilidades)
 	{
+		_fecha = fecha;
 		_inicio = inicio;
 		_fin = fin;
 		_precio = precio;
