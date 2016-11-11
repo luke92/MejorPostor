@@ -204,8 +204,8 @@ public class CargarOfertasForm extends JDialog {
 		int precio = (Integer) spnPrecio.getValue();
 		Oferta o = new Oferta(
 				LocalDate.parse(textoFecha),
-				LocalTime.of(desde,0), 
-				LocalTime.of(hasta, 0),
+				desde, 
+				hasta,
 				precio,
 				txtNombreBanda.getText(),
 				txtTelefono.getText(),

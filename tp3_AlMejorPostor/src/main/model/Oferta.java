@@ -8,14 +8,14 @@ import java.util.Date;
 public class Oferta 
 {
 	private LocalDate _fecha;
-	private LocalTime _inicio;
-	private LocalTime _fin;
+	private int _inicio;
+	private int _fin;
 	private int _precio;
 	private String _banda;
 	private String _telefono;
 	private String _facilidades;
 	
-	public Oferta(LocalDate fecha, LocalTime inicio, LocalTime fin, int precio, String banda, String telefono, String facilidades)
+	public Oferta(LocalDate fecha, int inicio, int fin, int precio, String banda, String telefono, String facilidades)
 	{
 		_fecha = fecha;
 		_inicio = inicio;
@@ -27,22 +27,21 @@ public class Oferta
 	}
 
 	@Override
-	public int hashCode()
-	{
+	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((_banda == null) ? 0 : _banda.hashCode());
 		result = prime * result + ((_facilidades == null) ? 0 : _facilidades.hashCode());
-		result = prime * result + ((_fin == null) ? 0 : _fin.hashCode());
-		result = prime * result + ((_inicio == null) ? 0 : _inicio.hashCode());
+		result = prime * result + ((_fecha == null) ? 0 : _fecha.hashCode());
+		result = prime * result + _fin;
+		result = prime * result + _inicio;
 		result = prime * result + _precio;
 		result = prime * result + ((_telefono == null) ? 0 : _telefono.hashCode());
 		return result;
 	}
 
 	@Override
-	public boolean equals(Object obj)
-	{
+	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -60,15 +59,14 @@ public class Oferta
 				return false;
 		} else if (!_facilidades.equals(other._facilidades))
 			return false;
-		if (_fin == null) {
-			if (other._fin != null)
+		if (_fecha == null) {
+			if (other._fecha != null)
 				return false;
-		} else if (!_fin.equals(other._fin))
+		} else if (!_fecha.equals(other._fecha))
 			return false;
-		if (_inicio == null) {
-			if (other._inicio != null)
-				return false;
-		} else if (!_inicio.equals(other._inicio))
+		if (_fin != other._fin)
+			return false;
+		if (_inicio != other._inicio)
 			return false;
 		if (_precio != other._precio)
 			return false;
