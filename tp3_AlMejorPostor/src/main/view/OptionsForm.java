@@ -29,13 +29,28 @@ public class OptionsForm extends JPanel {
 
 		});
 		this.add(btnCargarOfertas);
+		
+		JButton btnVerOfertas = new JButton("Ver Ofertas");
+		btnVerOfertas.setBounds(238, 85, 121, 23);
+		btnVerOfertas.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent arg0) {
+				verOfertas();
+			}
+		});
+		
+		add(btnVerOfertas);
 	}
 	   
 	private void cargarOfertas() 
 	{
 		new CargarOfertasForm().setVisible(true);
 	}
-	 
+	
+	private void verOfertas()
+	{
+		new VerOfertasForm().setVisible(true);
+	}
 
 	public void paint(Graphics g)
 	{
@@ -44,5 +59,4 @@ public class OptionsForm extends JPanel {
 		setOpaque(false);
 		super.paint(g);
 	} 
-
 }
