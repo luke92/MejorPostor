@@ -1,11 +1,13 @@
 package main.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.swing.table.DefaultTableModel;
 
 import main.model.Oferta;
 import main.service.OfertaService;
+import main.util.Comparador;
 
 public class Application 
 {
@@ -13,6 +15,7 @@ public class Application
 	{
 		ArrayList<Oferta> ofertas = OfertaService.getOfertasRecibidas();
 		ofertas.add(of);
+		Collections.sort(ofertas,Comparador.porFecha());
 		OfertaService.guardarOfertasRecibidas(ofertas);
 	}
 	

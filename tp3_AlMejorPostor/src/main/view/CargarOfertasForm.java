@@ -15,7 +15,7 @@ import org.jdatepicker.impl.JDatePickerImpl;
 
 import main.controller.Application;
 import main.model.Oferta;
-import main.util.ComparatorFecha;
+import main.util.Comparador;
 import main.util.ExpReg;
 
 import javax.swing.JLabel;
@@ -192,7 +192,7 @@ public class CargarOfertasForm extends JDialog
 	{
 		String textoFecha = datePicker.getJFormattedTextField().getText().trim();
 		if( textoFecha.isEmpty()) return false;
-		int valor = ComparatorFecha.compareTo(LocalDate.now(),LocalDate.parse(textoFecha));
+		int valor = Comparador.compareFecha(LocalDate.now(),LocalDate.parse(textoFecha));
 		if(valor > 0) return false;
 		return true;
 	}
