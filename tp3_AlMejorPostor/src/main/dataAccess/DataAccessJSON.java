@@ -25,15 +25,17 @@ public class DataAccessJSON
 	public static ArrayList<Oferta> readJSON(String filename)
 	{
 		ArrayList<Oferta> lcs = null;
-		if(!exists(filename)) return lcs;
-		try
-		{
+		if (!exists(filename))
+			return lcs;
+		try {
 			BufferedReader br = new BufferedReader(new FileReader(filename));
-			Type collectionType = new TypeToken<List<Oferta>>(){}.getType();
-			lcs = (ArrayList<Oferta>) new Gson().fromJson( br , collectionType);
+			Type collectionType = new TypeToken<List<Oferta>>() {
+			}.getType();
+			lcs = (ArrayList<Oferta>) new Gson().fromJson(br, collectionType);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		catch (Exception e) { e.printStackTrace(); }
-		
+
 		return lcs;
 	}
 	
@@ -41,14 +43,12 @@ public class DataAccessJSON
 	{
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(lista);
-		try
-		{
+		try {
 			FileWriter writer = new FileWriter(filename);
 			writer.write(json);
 			writer.close();
 			return true;
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}

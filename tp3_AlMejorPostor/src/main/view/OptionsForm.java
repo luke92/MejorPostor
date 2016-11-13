@@ -16,29 +16,27 @@ public class OptionsForm extends JPanel {
 
 	public OptionsForm(String nombre) 
 	{
-		this.rutaImagen= nombre;
+		this.rutaImagen = nombre;
 		this.setLayout(null);
-		
+
 		JButton btnCargarOfertas = new JButton("Cargar Ofertas");
 		btnCargarOfertas.setBounds(238, 51, 121, 23);
-		btnCargarOfertas.addActionListener(new ActionListener() 
-		{
+		btnCargarOfertas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cargarOfertas();
 			}
 
 		});
 		this.add(btnCargarOfertas);
-		
+
 		JButton btnVerOfertas = new JButton("Ver Ofertas");
 		btnVerOfertas.setBounds(238, 85, 121, 23);
-		btnVerOfertas.addActionListener(new ActionListener() 
-		{
+		btnVerOfertas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				verOfertas();
 			}
 		});
-		
+
 		add(btnVerOfertas);
 	}
 	   

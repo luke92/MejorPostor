@@ -41,12 +41,12 @@ public class VerOfertasForm extends JDialog {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
-		
+
 		table = new JTable();
 		table.setBounds(365, 37, -320, 134);
 		contentPanel.add(table);
 		table = new JTable(Application.mostrarTablaOfertas());
-		
+
 		JScrollPane scrollPane = new JScrollPane(table);
 		this.add(scrollPane, BorderLayout.CENTER);
 	}

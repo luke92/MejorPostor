@@ -45,7 +45,8 @@ public class CargarOfertasForm extends JDialog {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		try {
 			CargarOfertasForm dialog = new CargarOfertasForm();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -58,7 +59,8 @@ public class CargarOfertasForm extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public CargarOfertasForm() {
+	public CargarOfertasForm() 
+	{
 		setTitle("Cargar Oferta");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
@@ -202,14 +204,8 @@ public class CargarOfertasForm extends JDialog {
 		int desde = (Integer) spnDesde.getValue();
 		int hasta = (Integer) spnHasta.getValue();
 		int precio = (Integer) spnPrecio.getValue();
-		Oferta o = new Oferta(
-				LocalDate.parse(textoFecha),
-				desde, 
-				hasta,
-				precio,
-				txtNombreBanda.getText(),
-				txtTelefono.getText(),
-				txtFacilidades.getText());
+		Oferta o = new Oferta(LocalDate.parse(textoFecha), desde, hasta, precio, txtNombreBanda.getText(),
+				txtTelefono.getText(), txtFacilidades.getText());
 		return o;
 		
 	}

@@ -106,7 +106,4 @@ public class Oferta
 		return _facilidades;
 	}
 	
-	
-	
-	
 }
