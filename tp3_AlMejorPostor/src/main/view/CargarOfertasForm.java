@@ -28,11 +28,8 @@ import javax.swing.SpinnerNumberModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class CargarOfertasForm extends JDialog {
-
-	/**
-	 * 
-	 */
+public class CargarOfertasForm extends JDialog
+{
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtNombreBanda;
@@ -42,8 +39,10 @@ public class CargarOfertasForm extends JDialog {
 	private JSpinner spnDesde;
 	private JSpinner spnHasta;
 	private JDatePickerImpl datePicker;
+	
 	/**
 	 * Launch the application.
+
 	 */
 	public static void main(String[] args) 
 	{

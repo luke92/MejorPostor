@@ -22,4 +22,20 @@ public class OfertaService
 			ofertas = new ArrayList<Oferta>();
 		return ofertas;
 	}
+	
+	public static ArrayList<Oferta> getOfertasRecibidas(String fecha)
+	{
+		ArrayList<Oferta> ofertas;
+		ofertas = DataAccessJSON.readJSON(ofertasRecibidas);
+		
+		if (ofertas == null)
+			ofertas = new ArrayList<Oferta>();
+
+		ArrayList<Oferta> ret = new ArrayList<Oferta>();
+		for(Oferta of: ofertas)
+			if (of.get_fecha().toString().equals(fecha))
+				ret.add(of);
+		
+		return ret;
+	}
 }

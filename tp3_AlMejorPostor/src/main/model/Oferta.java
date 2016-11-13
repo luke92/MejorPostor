@@ -26,18 +26,32 @@ public class Oferta
 		_facilidades = facilidades;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((_banda == null) ? 0 : _banda.hashCode());
-		result = prime * result + ((_facilidades == null) ? 0 : _facilidades.hashCode());
-		result = prime * result + ((_fecha == null) ? 0 : _fecha.hashCode());
-		result = prime * result + _fin;
-		result = prime * result + _inicio;
-		result = prime * result + _precio;
-		result = prime * result + ((_telefono == null) ? 0 : _telefono.hashCode());
-		return result;
+	public LocalDate get_fecha() {
+		return _fecha;
+	}
+
+	public int get_inicio() {
+		return _inicio;
+	}
+
+	public int get_fin() {
+		return _fin;
+	}
+
+	public int get_precio() {
+		return _precio;
+	}
+
+	public String get_banda() {
+		return _banda;
+	}
+
+	public String get_telefono() {
+		return _telefono;
+	}
+
+	public String get_facilidades() {
+		return _facilidades;
 	}
 
 	@Override
@@ -77,33 +91,20 @@ public class Oferta
 			return false;
 		return true;
 	}
+	
 
-	public LocalDate get_fecha() {
-		return _fecha;
-	}
-
-	public int get_inicio() {
-		return _inicio;
-	}
-
-	public int get_fin() {
-		return _fin;
-	}
-
-	public int get_precio() {
-		return _precio;
-	}
-
-	public String get_banda() {
-		return _banda;
-	}
-
-	public String get_telefono() {
-		return _telefono;
-	}
-
-	public String get_facilidades() {
-		return _facilidades;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((_banda == null) ? 0 : _banda.hashCode());
+		result = prime * result + ((_facilidades == null) ? 0 : _facilidades.hashCode());
+		result = prime * result + ((_fecha == null) ? 0 : _fecha.hashCode());
+		result = prime * result + _fin;
+		result = prime * result + _inicio;
+		result = prime * result + _precio;
+		result = prime * result + ((_telefono == null) ? 0 : _telefono.hashCode());
+		return result;
 	}
 	
 }
