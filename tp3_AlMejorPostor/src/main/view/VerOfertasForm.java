@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
+import main.controller.Application;
 import main.service.OfertaService;
 
 import javax.swing.JTable;
@@ -44,13 +45,9 @@ public class VerOfertasForm extends JDialog {
 		table = new JTable();
 		table.setBounds(365, 37, -320, 134);
 		contentPanel.add(table);
+		table = new JTable(Application.mostrarTablaOfertas());
 		
-		Object columnNames[] = { "Fecha", "Horario", "Precio", "Banda", "Facilidades" };
-		Object rowData[][] ={ { "Row1-Column1", "Row1-Column2", "Row1-Column3","Row1-Column4","Row1-Column5" },
-		  { "Row2-Column1", "Row2-Column2", "Row2-Column3","Row2-Column4","Row2-Column5" } };
-		    table = new JTable(rowData, columnNames);
-
-		    JScrollPane scrollPane = new JScrollPane(table);
-		    this.add(scrollPane, BorderLayout.CENTER);
+		JScrollPane scrollPane = new JScrollPane(table);
+		this.add(scrollPane, BorderLayout.CENTER);
 	}
 }

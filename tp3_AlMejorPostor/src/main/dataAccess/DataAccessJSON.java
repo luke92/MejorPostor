@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import main.model.Oferta;
 import main.util.FileChecker;
 
 public class DataAccessJSON 
@@ -21,22 +22,22 @@ public class DataAccessJSON
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static <T> ArrayList<T> readJSON(String filename)
+	public static ArrayList<Oferta> readJSON(String filename)
 	{
-		ArrayList<T> lcs = null;
+		ArrayList<Oferta> lcs = null;
 		if(!exists(filename)) return lcs;
 		try
 		{
 			BufferedReader br = new BufferedReader(new FileReader(filename));
-			Type collectionType = new TypeToken<List<T>>(){}.getType();
-			lcs = (ArrayList<T>) new Gson().fromJson( br , collectionType);
+			Type collectionType = new TypeToken<List<Oferta>>(){}.getType();
+			lcs = (ArrayList<Oferta>) new Gson().fromJson( br , collectionType);
 		}
 		catch (Exception e) { e.printStackTrace(); }
 		
 		return lcs;
 	}
 	
-	public static <T> boolean writeJSON(String filename, ArrayList<T> lista)
+	public static boolean writeJSON(String filename, ArrayList<Oferta> lista)
 	{
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(lista);

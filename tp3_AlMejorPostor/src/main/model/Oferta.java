@@ -77,6 +77,36 @@ public class Oferta
 			return false;
 		return true;
 	}
+
+	public LocalDate get_fecha() {
+		return _fecha;
+	}
+
+	public int get_inicio() {
+		return _inicio;
+	}
+
+	public int get_fin() {
+		return _fin;
+	}
+
+	public int get_precio() {
+		return _precio;
+	}
+
+	public String get_banda() {
+		return _banda;
+	}
+
+	public String get_telefono() {
+		return _telefono;
+	}
+
+	public String get_facilidades() {
+		return _facilidades;
+	}
+	
+	
 	
 	
 }
