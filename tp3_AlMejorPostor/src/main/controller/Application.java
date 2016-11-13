@@ -39,13 +39,13 @@ public class Application
 		return dtm;
 	}
 	
-	public static DefaultTableModel mostrarTablaOfertas(String textoFecha)
+	public static DefaultTableModel mostrarTablaOfertas(String fecha)
 	{
 		DefaultTableModel dtm = new DefaultTableModel();
 		Object columnNames[] = { "Fecha", "Horario", "Precio", "Banda", "Facilidades", "Telefono" };
 		for (Object columna : columnNames)
 			dtm.addColumn(columna);
-		for (Oferta o : OfertaService.getOfertasRecibidas(textoFecha)) {
+		for (Oferta o : OfertaService.getOfertasRecibidas(fecha)) {
 			String datos[] = new String[6];
 			datos[0] = o.get_fecha().toString();
 			datos[1] = o.get_inicio() + " a " + o.get_fin();
@@ -57,5 +57,35 @@ public class Application
 			dtm.addRow(datos);
 		}
 		return dtm;
+	}
+	
+	public static DefaultTableModel mostrarTablaMejoreOfertas(String fecha)
+	{
+		DefaultTableModel dtm = new DefaultTableModel();
+		Object columnNames[] = { "Fecha", "Horario", "Precio", "Banda", "Facilidades", "Telefono" };
+		for (Object columna : columnNames)
+			dtm.addColumn(columna);
+		ArrayList<Oferta> mejoresOfertas = OfertaService.getOfertasRecibidas(fecha);
+		mejoresOfertas = getMejoresOfertas(mejoresOfertas);
+		for (Oferta o : mejoresOfertas) 
+		{
+			
+			String datos[] = new String[6];
+			datos[0] = o.get_fecha().toString();
+			datos[1] = o.get_inicio() + " a " + o.get_fin();
+			datos[2] = String.valueOf(o.get_precio());
+			datos[3] = o.get_banda();
+			datos[4] = o.get_facilidades();
+			datos[5] = o.get_telefono();
+
+			dtm.addRow(datos);
+		}
+		return dtm;
+	}
+	
+	private static ArrayList<Oferta> getMejoresOfertas(ArrayList<Oferta> ofertas)
+	{
+		ArrayList<Oferta> mejoresOfertas = new ArrayList<Oferta>();
+		return mejoresOfertas;
 	}
 }
