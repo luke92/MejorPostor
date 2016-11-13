@@ -23,4 +23,28 @@ public abstract class Comparador
 			}
 		};
 	}
+	
+	public static Comparator<Oferta> porHorario()
+	{
+		return new Comparator<Oferta>()
+		{
+			@Override
+			public int compare(Oferta uno, Oferta otro)
+			{
+				if(uno.get_fecha().isEqual(otro.get_fecha()))
+				{
+					if((uno.get_inicio() >= otro.get_inicio()) 
+						&& (uno.get_inicio() <= otro.get_fin()))
+						return 0;
+					if((uno.get_fin() >= otro.get_inicio())
+						&& (uno.get_fin() <= otro.get_fin()))
+						return 0;
+					if(uno.get_fin() < otro.get_inicio()) return -1;
+					else return 1;
+				}
+				else
+					return uno.get_fecha().compareTo(otro.get_fecha());
+			}
+		};
+	}
 }
