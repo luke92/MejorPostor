@@ -12,7 +12,8 @@ import main.controller.Ofertas;
 public class OfertasTest {
 	private LocalDate d = LocalDate.now();
 	
-	private Ofertas instancia(){
+	private Ofertas instancia()
+	{
 		Ofertas o = new Ofertas();
 		o.agregar(new Oferta(d,8, 11, 800, "GZ", "1158882866", "2 MICS y Teclado"));
 		o.agregar(new Oferta(d,12, 15, 700, "Pedro", null, null));
@@ -24,7 +25,8 @@ public class OfertasTest {
 	}
 
 	@Test
-	public void agregarOfertaTest() {
+	public void agregarOfertaTest()
+	{
 		Ofertas o = instancia();
 
 		assertTrue(o.contains(new Oferta(d,17, 21, 700, "Lucas", null, null)));
@@ -38,7 +40,8 @@ public class OfertasTest {
 	}
 	
 	@Test
-	public void removerOfertaTest() {
+	public void removerOfertaTest()
+	{
 		Ofertas o = instancia();
 		
 		assertTrue(o.contains(new Oferta(d,17, 21, 700, "Lucas", null, null)));
