@@ -30,9 +30,9 @@ public abstract class Comparador
 				if (uno.get_fecha().isEqual(dos.get_fecha())) {
 					if ((uno.get_inicio() <= dos.get_inicio()) && (uno.get_fin() <= dos.get_inicio())
 							|| (dos.get_inicio() <= uno.get_inicio()) && (dos.get_fin() <= uno.get_inicio()))
-						return 0;
+						return 0;	//si no se superponen retorna cero
 					if (uno.get_fin() > dos.get_inicio() || uno.get_inicio() > dos.get_fin())
-						return 1;
+						return 1;	//si se superponen retorna uno
 				}
 				else
 					return uno.get_fecha().compareTo(dos.get_fecha());
