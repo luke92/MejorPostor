@@ -1,9 +1,6 @@
 package main.model;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.Date;
 
 public class Oferta 
 {
@@ -92,7 +89,6 @@ public class Oferta
 		return true;
 	}
 	
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;

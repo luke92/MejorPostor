@@ -3,6 +3,7 @@ package test.controller;
 import static org.junit.Assert.*;
 
 import java.time.LocalDate;
+import java.util.Comparator;
 
 import org.junit.Test;
 
@@ -102,4 +103,13 @@ public class ComparadorTest {
 		assertTrue(Comparador.porHorario().compare(o.get(4), o.get(4)) == 1);
 	}
 
+	public void porBeneficioTest()
+	{
+		Ofertas o = instancia2();
+
+		assertTrue(Comparador.porBeneficio().compare(o.get(0), o.get(0)) == 0);
+		assertTrue(Comparador.porBeneficio().compare(o.get(0), o.get(1)) == 0);
+		assertTrue(Comparador.porBeneficio().compare(o.get(1), o.get(2)) == 700);
+		assertTrue(Comparador.porBeneficio().compare(o.get(2), o.get(3)) == 700);
+	}
 }

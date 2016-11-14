@@ -28,15 +28,37 @@ public abstract class Comparador
 			@Override
 			public int compare(Oferta uno, Oferta dos) {
 				if (uno.get_fecha().isEqual(dos.get_fecha())) {
-					if ((uno.get_inicio() <= dos.get_inicio()) && (uno.get_fin() <= dos.get_inicio())
-							|| (dos.get_inicio() <= uno.get_inicio()) && (dos.get_fin() <= uno.get_inicio()))
-						return 0;	//si no se superponen retorna cero
-					if (uno.get_fin() > dos.get_inicio() || uno.get_inicio() > dos.get_fin())
-						return 1;	//si se superponen retorna uno
-				}
-				else
+					if (horariosSePisan(uno, dos))
+						return 1;
+					else
+						return 0;
+				} else
 					return uno.get_fecha().compareTo(dos.get_fecha());
-				return -1;
+			}
+		};
+	}
+	
+	public static boolean horariosSePisan(Oferta uno, Oferta dos){
+		if ((uno.get_inicio() <= dos.get_inicio()) && (uno.get_fin() <= dos.get_inicio())
+				|| (dos.get_inicio() <= uno.get_inicio()) && (dos.get_fin() <= uno.get_inicio()))
+			return false;
+		if (uno.get_fin() > dos.get_inicio() || uno.get_inicio() > dos.get_fin())
+			return true;
+		return true;
+	}
+
+	public static Comparator<Oferta> porBeneficio() {	//si los horarios se pisan, retorna el precio de la oferta mayor
+		return new Comparator<Oferta>() {
+			@Override
+			public int compare(Oferta uno, Oferta dos) {
+				if (uno.get_fecha().isEqual(dos.get_fecha())) {
+					if (horariosSePisan(uno, dos))
+						if (uno.get_precio() >= dos.get_precio())
+							return uno.get_precio();
+						else
+							return dos.get_precio();
+				}
+				return 0;
 			}
 		};
 	}
