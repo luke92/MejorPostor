@@ -2,8 +2,6 @@ package main.view;
 
 import java.awt.BorderLayout;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
