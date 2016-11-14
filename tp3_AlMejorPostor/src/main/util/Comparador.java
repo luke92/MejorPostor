@@ -38,7 +38,8 @@ public abstract class Comparador
 		};
 	}
 	
-	public static boolean horariosSePisan(Oferta uno, Oferta dos){
+	public static boolean horariosSePisan(Oferta uno, Oferta dos)
+	{
 		if ((uno.get_inicio() <= dos.get_inicio()) && (uno.get_fin() <= dos.get_inicio())
 				|| (dos.get_inicio() <= uno.get_inicio()) && (dos.get_fin() <= uno.get_inicio()))
 			return false;
@@ -47,7 +48,8 @@ public abstract class Comparador
 		return true;
 	}
 
-	public static Comparator<Oferta> porBeneficio() {	//si los horarios se pisan, retorna el precio de la oferta mayor
+	public static Comparator<Oferta> porBeneficio()	//si los horarios se pisan, retorna el precio de la oferta mayor
+	{
 		return new Comparator<Oferta>() {
 			@Override
 			public int compare(Oferta uno, Oferta dos) {
