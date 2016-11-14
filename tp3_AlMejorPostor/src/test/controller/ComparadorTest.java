@@ -12,7 +12,8 @@ import main.util.Comparador;
 
 public class ComparadorTest {
 
-	private Ofertas instancia1() {
+	private Ofertas instancia1()
+	{
 		Ofertas o = new Ofertas();
 		o.agregar(new Oferta(LocalDate.of(2016, 11, 19), 8, 11, 800, "GZ", "1158882866", "2 MICS y Teclado"));
 		o.agregar(new Oferta(LocalDate.of(2016, 11, 20), 10, 13, 700, "Pedro", null, null));
@@ -23,9 +24,10 @@ public class ComparadorTest {
 		return o;
 	}
 
-	private Ofertas instancia2() {
+	private Ofertas instancia2()
+	{
 		Ofertas o = new Ofertas();
-		o.agregar(new Oferta(LocalDate.of(2016, 11, 19), 8, 9, 800, "GZ", "1158882866", "2 MICS y Teclado"));
+		o.agregar(new Oferta(LocalDate.of(2016, 11, 19), 8, 11, 800, "GZ", "1158882866", "2 MICS y Teclado"));
 		o.agregar(new Oferta(LocalDate.of(2016, 11, 19), 10, 13, 700, "Pedro", null, null));
 		o.agregar(new Oferta(LocalDate.of(2016, 11, 19), 11, 16, 500, "Marta", null, null));
 		o.agregar(new Oferta(LocalDate.of(2016, 11, 19), 15, 17, 700, "Lucas", null, null));
@@ -35,7 +37,8 @@ public class ComparadorTest {
 	}
 
 	@Test
-	public void compareFechaTest() {
+	public void compareFechaTest()
+	{
 		Ofertas o = instancia1();
 
 		assertTrue(Comparador.compareFecha(o.get(0).get_fecha(), o.get(0).get_fecha()) == 0);
@@ -56,7 +59,8 @@ public class ComparadorTest {
 	}
 
 	@Test
-	public void porFechaTest() {
+	public void porFechaTest()
+	{
 		Ofertas o = instancia1();
 
 		assertTrue(Comparador.porFecha().compare(o.get(0), o.get(0)) == 0);
@@ -77,24 +81,25 @@ public class ComparadorTest {
 	}
 
 	@Test
-	public void porHorarioTest() {
+	public void porHorarioTest()
+	{
 		Ofertas o = instancia2();
 
-		assertTrue(Comparador.porHorario().compare(o.get(0), o.get(0)) == 0);
-		assertTrue(Comparador.porHorario().compare(o.get(0), o.get(1)) == -1);
-		assertTrue(Comparador.porHorario().compare(o.get(0), o.get(2)) == -1);
-		assertTrue(Comparador.porHorario().compare(o.get(0), o.get(3)) == -1);
-		assertTrue(Comparador.porHorario().compare(o.get(0), o.get(4)) == 0);
-		assertTrue(Comparador.porHorario().compare(o.get(1), o.get(1)) == 0);
-		assertTrue(Comparador.porHorario().compare(o.get(1), o.get(2)) == 0);
-		assertTrue(Comparador.porHorario().compare(o.get(1), o.get(3)) == -1);
-		assertTrue(Comparador.porHorario().compare(o.get(1), o.get(4)) == 0);
-		assertTrue(Comparador.porHorario().compare(o.get(2), o.get(2)) == 0);
-		assertTrue(Comparador.porHorario().compare(o.get(2), o.get(3)) == 0);
+		assertTrue(Comparador.porHorario().compare(o.get(0), o.get(0)) == 1);
+		assertTrue(Comparador.porHorario().compare(o.get(0), o.get(1)) == 1);
+		assertTrue(Comparador.porHorario().compare(o.get(0), o.get(2)) == 0);
+		assertTrue(Comparador.porHorario().compare(o.get(0), o.get(3)) == 0);
+		assertTrue(Comparador.porHorario().compare(o.get(0), o.get(4)) == 1);
+		assertTrue(Comparador.porHorario().compare(o.get(1), o.get(1)) == 1);
+		assertTrue(Comparador.porHorario().compare(o.get(1), o.get(2)) == 1);
+		assertTrue(Comparador.porHorario().compare(o.get(1), o.get(3)) == 0);
+		assertTrue(Comparador.porHorario().compare(o.get(1), o.get(4)) == 1);
+		assertTrue(Comparador.porHorario().compare(o.get(2), o.get(2)) == 1);
+		assertTrue(Comparador.porHorario().compare(o.get(2), o.get(3)) == 1);
 		assertTrue(Comparador.porHorario().compare(o.get(2), o.get(4)) == 0);
-		assertTrue(Comparador.porHorario().compare(o.get(3), o.get(3)) == 0);
-		assertTrue(Comparador.porHorario().compare(o.get(3), o.get(4)) == 1);
-		assertTrue(Comparador.porHorario().compare(o.get(4), o.get(4)) == 0);
+		assertTrue(Comparador.porHorario().compare(o.get(3), o.get(3)) == 1);
+		assertTrue(Comparador.porHorario().compare(o.get(3), o.get(4)) == 0);
+		assertTrue(Comparador.porHorario().compare(o.get(4), o.get(4)) == 1);
 	}
 
 }

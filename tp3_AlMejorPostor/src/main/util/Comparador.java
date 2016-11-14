@@ -28,16 +28,15 @@ public abstract class Comparador
 			@Override
 			public int compare(Oferta uno, Oferta dos) {
 				if (uno.get_fecha().isEqual(dos.get_fecha())) {
-					if ((uno.get_inicio() >= dos.get_inicio()) && (uno.get_inicio() <= dos.get_fin()))
+					if ((uno.get_inicio() <= dos.get_inicio()) && (uno.get_fin() <= dos.get_inicio())
+							|| (dos.get_inicio() <= uno.get_inicio()) && (dos.get_fin() <= uno.get_inicio()))
 						return 0;
-					if ((uno.get_fin() >= dos.get_inicio()) && (uno.get_fin() <= dos.get_fin()))
-						return 0;
-					if (uno.get_fin() < dos.get_inicio())
-						return -1;
-					else
+					if (uno.get_fin() > dos.get_inicio() || uno.get_inicio() > dos.get_fin())
 						return 1;
-				} else
+				}
+				else
 					return uno.get_fecha().compareTo(dos.get_fecha());
+				return -1;
 			}
 		};
 	}
