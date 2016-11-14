@@ -108,7 +108,9 @@ public class ComparadorTest {
 
 		assertTrue(Comparador.porBeneficio().compare(o.get(0), o.get(0)) == 0);
 		assertTrue(Comparador.porBeneficio().compare(o.get(0), o.get(1)) == 0);
+		assertTrue(Comparador.porBeneficio().compare(o.get(0), o.get(4)) == 800);
 		assertTrue(Comparador.porBeneficio().compare(o.get(1), o.get(2)) == 700);
 		assertTrue(Comparador.porBeneficio().compare(o.get(2), o.get(3)) == 700);
 	}
+
 }

@@ -16,8 +16,8 @@ public abstract class Comparador
 	{
 		return new Comparator<Oferta>() {
 			@Override
-			public int compare(Oferta uno, Oferta otro) {
-				return uno.get_fecha().compareTo(otro.get_fecha());
+			public int compare(Oferta uno, Oferta dos) {
+				return uno.get_fecha().compareTo(dos.get_fecha());
 			}
 		};
 	}
@@ -27,7 +27,7 @@ public abstract class Comparador
 		return new Comparator<Oferta>() {
 			@Override
 			public int compare(Oferta uno, Oferta dos) {
-				if (uno.get_fecha().isEqual(dos.get_fecha())) {
+				if (mismoDia(uno, dos)) {
 					if (horariosSePisan(uno, dos))
 						return 1;
 					else
@@ -37,23 +37,13 @@ public abstract class Comparador
 			}
 		};
 	}
-	
-	public static boolean horariosSePisan(Oferta uno, Oferta dos)
-	{
-		if ((uno.get_inicio() <= dos.get_inicio()) && (uno.get_fin() <= dos.get_inicio())
-				|| (dos.get_inicio() <= uno.get_inicio()) && (dos.get_fin() <= uno.get_inicio()))
-			return false;
-		if (uno.get_fin() > dos.get_inicio() || uno.get_inicio() > dos.get_fin())
-			return true;
-		return true;
-	}
 
 	public static Comparator<Oferta> porBeneficio()	//si los horarios se pisan, retorna el precio de la oferta mayor
 	{
 		return new Comparator<Oferta>() {
 			@Override
 			public int compare(Oferta uno, Oferta dos) {
-				if (uno.get_fecha().isEqual(dos.get_fecha())) {
+				if (mismoDia(uno, dos)) {
 					if (horariosSePisan(uno, dos))
 						if (uno.get_precio() >= dos.get_precio())
 							return uno.get_precio();
@@ -64,4 +54,24 @@ public abstract class Comparador
 			}
 		};
 	}
+	
+	private static boolean mismoDia(Oferta uno, Oferta dos)
+	{
+		if (uno.get_fecha().isEqual(dos.get_fecha()))
+			return true;
+		return false;
+	}
+	
+	private static boolean horariosSePisan(Oferta uno, Oferta dos)
+	{
+		if (mismoDia(uno, dos)) {
+			if ((uno.get_inicio() <= dos.get_inicio()) && (uno.get_fin() <= dos.get_inicio())
+					|| (dos.get_inicio() <= uno.get_inicio()) && (dos.get_fin() <= uno.get_inicio()))
+				return false;
+			if (uno.get_fin() > dos.get_inicio() || uno.get_inicio() > dos.get_fin())
+				return true;
+		}
+		return true;
+	}
+
 }
