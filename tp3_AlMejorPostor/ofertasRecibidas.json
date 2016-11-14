@@ -1,0 +1,106 @@
+[
+  {
+    "_fecha": {
+      "year": 2016,
+      "month": 11,
+      "day": 14
+    },
+    "_inicio": 13,
+    "_fin": 16,
+    "_precio": 300,
+    "_banda": "banda",
+    "_telefono": "1234",
+    "_facilidades": "Guitarra"
+  },
+  {
+    "_fecha": {
+      "year": 2016,
+      "month": 11,
+      "day": 14
+    },
+    "_inicio": 0,
+    "_fin": 1,
+    "_precio": 200,
+    "_banda": "x1",
+    "_telefono": "123",
+    "_facilidades": ""
+  },
+  {
+    "_fecha": {
+      "year": 2016,
+      "month": 11,
+      "day": 14
+    },
+    "_inicio": 0,
+    "_fin": 1,
+    "_precio": 100,
+    "_banda": "12",
+    "_telefono": "21",
+    "_facilidades": ""
+  },
+  {
+    "_fecha": {
+      "year": 2016,
+      "month": 11,
+      "day": 14
+    },
+    "_inicio": 0,
+    "_fin": 1,
+    "_precio": 100,
+    "_banda": "as",
+    "_telefono": "12",
+    "_facilidades": ""
+  },
+  {
+    "_fecha": {
+      "year": 2016,
+      "month": 11,
+      "day": 14
+    },
+    "_inicio": 5,
+    "_fin": 10,
+    "_precio": 1100,
+    "_banda": "no se",
+    "_telefono": "1234",
+    "_facilidades": ""
+  },
+  {
+    "_fecha": {
+      "year": 2016,
+      "month": 11,
+      "day": 15
+    },
+    "_inicio": 13,
+    "_fin": 18,
+    "_precio": 500,
+    "_banda": "TecnoBand",
+    "_telefono": "12345",
+    "_facilidades": "microfono"
+  },
+  {
+    "_fecha": {
+      "year": 2016,
+      "month": 11,
+      "day": 16
+    },
+    "_inicio": 12,
+    "_fin": 14,
+    "_precio": 300,
+    "_banda": "mascardi",
+    "_telefono": "1234",
+    "_facilidades": ""
+  },
+  {
+    "_fecha": {
+      "year": 2016,
+      "month": 11,
+      "day": 16
+    },
+    "_inicio": 0,
+    "_fin": 1,
+    "_precio": 100,
+    "_banda": "manjatan",
+    "_telefono": "21545",
+    "_facilidades": ""
+  }
+]
