@@ -15,7 +15,7 @@ public class Application
 	{
 		ArrayList<Oferta> ofertas = OfertaService.getOfertasRecibidas();
 		ofertas.add(of);
-		Collections.sort(ofertas,Comparador.porFecha());
+		Collections.sort(ofertas, Comparador.porFecha());
 		OfertaService.guardarOfertasRecibidas(ofertas);
 	}
 	
@@ -23,8 +23,10 @@ public class Application
 	{
 		DefaultTableModel dtm = new DefaultTableModel();
 		Object columnNames[] = { "Fecha", "Horario", "Precio", "Banda", "Facilidades", "Telefono" };
+		
 		for (Object columna : columnNames)
 			dtm.addColumn(columna);
+		
 		for (Oferta o : OfertaService.getOfertasRecibidas()) {
 			String datos[] = new String[6];
 			datos[0] = o.get_fecha().toString();
@@ -36,6 +38,7 @@ public class Application
 
 			dtm.addRow(datos);
 		}
+		
 		return dtm;
 	}
 	
@@ -43,8 +46,10 @@ public class Application
 	{
 		DefaultTableModel dtm = new DefaultTableModel();
 		Object columnNames[] = { "Fecha", "Horario", "Precio", "Banda", "Facilidades", "Telefono" };
+		
 		for (Object columna : columnNames)
 			dtm.addColumn(columna);
+		
 		for (Oferta o : OfertaService.getOfertasRecibidas(fecha)) {
 			String datos[] = new String[6];
 			datos[0] = o.get_fecha().toString();
@@ -56,6 +61,7 @@ public class Application
 
 			dtm.addRow(datos);
 		}
+		
 		return dtm;
 	}
 	
@@ -63,13 +69,14 @@ public class Application
 	{
 		DefaultTableModel dtm = new DefaultTableModel();
 		Object columnNames[] = { "Fecha", "Horario", "Precio", "Banda", "Facilidades", "Telefono" };
+		
 		for (Object columna : columnNames)
 			dtm.addColumn(columna);
+		
 		ArrayList<Oferta> mejoresOfertas = OfertaService.getOfertasRecibidas(fecha);
 		mejoresOfertas = getMejoresOfertas(mejoresOfertas);
-		for (Oferta o : mejoresOfertas) 
-		{
-			
+		
+		for (Oferta o : mejoresOfertas) {
 			String datos[] = new String[6];
 			datos[0] = o.get_fecha().toString();
 			datos[1] = o.get_inicio() + " a " + o.get_fin();
@@ -80,6 +87,7 @@ public class Application
 
 			dtm.addRow(datos);
 		}
+		
 		return dtm;
 	}
 	

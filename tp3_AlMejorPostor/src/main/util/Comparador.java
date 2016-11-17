@@ -35,16 +35,16 @@ public abstract class Comparador
 		};
 	}
 
-	public static Comparator<Oferta> porBeneficio()
+	public static Comparator<Oferta> porBeneficio()	// mmm...
 	{
 		return new Comparator<Oferta>() {
 			@Override
 			public int compare(Oferta uno, Oferta dos) {
 				if (horariosSePisan(uno, dos))
 					if (uno.get_precio() >= dos.get_precio())
-						return uno.get_precio();
+						return 1;
 					else
-						return dos.get_precio();
+						return 2;
 				return 0;
 			}
 		};
@@ -66,6 +66,7 @@ public abstract class Comparador
 	{
 		if (uno.get_fecha().isEqual(dos.get_fecha()))
 			return true;
+
 		return false;
 	}
 

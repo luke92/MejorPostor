@@ -13,6 +13,7 @@ import org.jdatepicker.impl.JDatePickerImpl;
 
 import main.controller.Application;
 import main.model.Oferta;
+import main.service.OfertaService;
 import main.util.Comparador;
 import main.util.ExpReg;
 
@@ -149,11 +150,13 @@ public class CargarOfertasForm extends JDialog
 	{
 		txtNombreBanda.setText(txtNombreBanda.getText().trim());
 		txtTelefono.setText(txtTelefono.getText().trim());
-		if(!camposValidos()) 
+		if (!camposValidos())
 			JOptionPane.showMessageDialog(null, "Algunos campos son Invalidos");
-		else
-		{
+		if (OfertaService.getOfertasRecibidas().contains(getCampos()))
+			JOptionPane.showMessageDialog(null, "ERROR! Oferta ya cargada anteriormente");
+		else {
 			Application.agregarOferta(getCampos());
+			JOptionPane.showMessageDialog(null, "Su oferta ha sido cargada correctamente");
 			reiniciarCampos();
 		}
 	}
@@ -181,8 +184,10 @@ public class CargarOfertasForm extends JDialog
 	{
 		int desde = (Integer) spnDesde.getValue();
 		int hasta = (Integer) spnHasta.getValue();
+		
 		if(desde >= hasta)
 			return false;
+		
 		return true;
 	}
 	
@@ -192,6 +197,7 @@ public class CargarOfertasForm extends JDialog
 		if( textoFecha.isEmpty()) return false;
 		int valor = Comparador.compareFecha(LocalDate.now(),LocalDate.parse(textoFecha));
 		if(valor > 0) return false;
+		
 		return true;
 	}
 	
@@ -203,7 +209,8 @@ public class CargarOfertasForm extends JDialog
 		int precio = (Integer) spnPrecio.getValue();
 		Oferta o = new Oferta(LocalDate.parse(textoFecha), desde, hasta, precio, txtNombreBanda.getText(),
 				txtTelefono.getText(), txtFacilidades.getText());
-		return o;
 		
+		return o;
 	}
+	
 }

@@ -18,8 +18,10 @@ public class OfertaService
 	{
 		ArrayList<Oferta> ofertas;
 		ofertas = DataAccessJSON.readJSON(ofertasRecibidas);
+		
 		if (ofertas == null)
 			ofertas = new ArrayList<Oferta>();
+		
 		return ofertas;
 	}
 	
