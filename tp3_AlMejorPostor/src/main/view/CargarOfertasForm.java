@@ -122,7 +122,6 @@ public class CargarOfertasForm extends JDialog
 		JPanel pnlDatePicker = new JPanel();
 		pnlDatePicker.setBounds(220, 84, 204, 73);
 		contentPanel.add(pnlDatePicker);
-		
 		datePicker = CalendarioForm.getPickerToday();
 		pnlDatePicker.add(datePicker);
 		
@@ -150,10 +149,12 @@ public class CargarOfertasForm extends JDialog
 	{
 		txtNombreBanda.setText(txtNombreBanda.getText().trim());
 		txtTelefono.setText(txtTelefono.getText().trim());
+		
 		if (!camposValidos())
 			JOptionPane.showMessageDialog(null, "Algunos campos son Invalidos");
 		if (OfertaService.getOfertasRecibidas().contains(getCampos()))
-			JOptionPane.showMessageDialog(null, "ERROR! Oferta ya cargada anteriormente");
+			JOptionPane.showMessageDialog(null, "ERROR! Oferta cargada anteriormente");
+		
 		else {
 			Application.agregarOferta(getCampos());
 			JOptionPane.showMessageDialog(null, "Su oferta ha sido cargada correctamente");
@@ -163,11 +164,12 @@ public class CargarOfertasForm extends JDialog
 	
 	private boolean camposValidos()
 	{
-		if(txtNombreBanda.getText() == "") return false;
-		if(txtTelefono.getText() == "") return false;
-		if(!ExpReg.containOnlyNumbers(txtTelefono.getText())) return false;
-		if(!horarioCorrecto()) return false;
-		if(!fechaCorrecta()) return false;
+		if (txtNombreBanda.getText() == "") return false;
+		if (txtTelefono.getText() == "") return false;
+		if (!ExpReg.containOnlyNumbers(txtTelefono.getText())) return false;
+		if (!horarioCorrecto()) return false;
+		if (!fechaCorrecta()) return false;
+		
 		return true;
 	}
 	
@@ -178,6 +180,7 @@ public class CargarOfertasForm extends JDialog
 		txtFacilidades.setText("");
 		spnDesde.setValue(new Integer(0));
 		spnHasta.setValue(new Integer(1));
+		spnPrecio.setModel(new SpinnerNumberModel(new Integer(100), new Integer(100), null, new Integer(100)));
 	}
 	
 	private boolean horarioCorrecto()
@@ -194,9 +197,9 @@ public class CargarOfertasForm extends JDialog
 	private boolean fechaCorrecta()
 	{
 		String textoFecha = datePicker.getJFormattedTextField().getText().trim();
-		if( textoFecha.isEmpty()) return false;
-		int valor = Comparador.compareFecha(LocalDate.now(),LocalDate.parse(textoFecha));
-		if(valor > 0) return false;
+		if (textoFecha.isEmpty()) return false;
+		int valor = Comparador.compareFecha(LocalDate.now(), LocalDate.parse(textoFecha));
+		if (valor > 0) return false;
 		
 		return true;
 	}
