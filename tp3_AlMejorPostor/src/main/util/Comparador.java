@@ -41,10 +41,10 @@ public abstract class Comparador
 			@Override
 			public int compare(Oferta uno, Oferta dos) {
 				if (horariosSePisan(uno, dos))
-					if (uno.get_precio() >= dos.get_precio())
+					if ( (uno.get_precio())/(uno.get_fin()-uno.get_inicio()) > (dos.get_precio())/(dos.get_fin()-dos.get_inicio()))
 						return 1;
 					else
-						return 2;
+						return -1;
 				return 0;
 			}
 		};
