@@ -107,11 +107,11 @@ public class ComparadorTest {
 	{
 		Ofertas o = instancia2();
 
-		assertTrue(Comparador.porBeneficio().compare(o.get(0), o.get(0)) == 0);
-		assertTrue(Comparador.porBeneficio().compare(o.get(0), o.get(1)) == -1);
-		assertTrue(Comparador.porBeneficio().compare(o.get(0), o.get(4)) == 1);
-		assertTrue(Comparador.porBeneficio().compare(o.get(1), o.get(2)) == 1);
-		assertTrue(Comparador.porBeneficio().compare(o.get(2), o.get(3)) == -1);
+		assertTrue(Comparador.porBeneficioMayorAMenor().compare(o.get(0), o.get(0)) == 0);
+		assertTrue(Comparador.porBeneficioMayorAMenor().compare(o.get(0), o.get(1)) == -1);
+		assertTrue(Comparador.porBeneficioMayorAMenor().compare(o.get(0), o.get(4)) == 1);
+		assertTrue(Comparador.porBeneficioMayorAMenor().compare(o.get(1), o.get(2)) == 1);
+		assertTrue(Comparador.porBeneficioMayorAMenor().compare(o.get(2), o.get(3)) == -1);
 	}
 
 }

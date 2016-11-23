@@ -26,16 +26,21 @@ public abstract class Comparador
 	{
 		return new Comparator<Oferta>() {
 			@Override
-			public int compare(Oferta uno, Oferta dos) {
-				if (horariosSePisan(uno, dos))
-					return 1;
+			public int compare(Oferta uno, Oferta dos) 
+			{
+				if(mismoDia(uno, dos))
+				{
+					if (uno.get_inicio() == dos.get_inicio()) return 0;
+					if( uno.get_inicio() > dos.get_inicio()) return 1;
+					return -1;
+				}
 				else
-					return 0;
+					return uno.get_fecha().compareTo(dos.get_fecha());
 			}
 		};
 	}
 
-	public static Comparator<Oferta> porBeneficio()	// mmm...
+	public static Comparator<Oferta> porBeneficioMayorAMenor()
 	{
 		return new Comparator<Oferta>() {
 			@Override
@@ -69,5 +74,7 @@ public abstract class Comparador
 
 		return false;
 	}
+	
+	
 
 }

@@ -48,6 +48,8 @@ public class VerMejoresOfertasForm extends JDialog
 	 */
 	public VerMejoresOfertasForm()
 	{
+		setTitle("Ver Mejores Ofertas");
+		
 		setBounds(100, 450, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));

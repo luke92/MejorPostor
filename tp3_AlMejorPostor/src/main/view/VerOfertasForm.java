@@ -49,6 +49,7 @@ public class VerOfertasForm extends JDialog
 	 */
 	public VerOfertasForm()
 	{
+		setTitle("Ver Ofertas");
 		setBounds(100, 450, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));

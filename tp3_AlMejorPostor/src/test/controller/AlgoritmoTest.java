@@ -21,7 +21,7 @@ public class AlgoritmoTest {
 		ofertas.add(new Oferta(LocalDate.of(2016, 11, 19), 17, 21, 700, "Lucas", null, null));
 		ofertas.add(new Oferta(LocalDate.of(2016, 11, 19),7, 11, 100, "Maxi", null, null));
 		
-		ArrayList<Oferta> ofertasGoloseadas = Algoritmo.Goloso(ofertas);
+		ArrayList<Oferta> ofertasGoloseadas = Algoritmo.goloso(ofertas);
 		
 //		System.out.println(ofertasGoloseadas.get(0).get_banda().toString());
 //		System.out.println(ofertasGoloseadas.get(1).get_banda().toString());

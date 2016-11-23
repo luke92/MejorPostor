@@ -15,7 +15,7 @@ public class Application
 	{
 		ArrayList<Oferta> ofertas = OfertaService.getOfertasRecibidas();
 		ofertas.add(of);
-		Collections.sort(ofertas, Comparador.porFecha());
+		Collections.sort(ofertas, Comparador.porHorario());
 		OfertaService.guardarOfertasRecibidas(ofertas);
 	}
 	
@@ -27,7 +27,9 @@ public class Application
 		for (Object columna : columnNames)
 			dtm.addColumn(columna);
 		
-		for (Oferta o : OfertaService.getOfertasRecibidas()) {
+		ArrayList<Oferta> ofertas = OfertaService.getOfertasRecibidas();
+		
+		for (Oferta o : ofertas) {
 			String datos[] = new String[6];
 			datos[0] = o.get_fecha().toString();
 			datos[1] = o.get_inicio() + " a " + o.get_fin();
@@ -50,7 +52,9 @@ public class Application
 		for (Object columna : columnNames)
 			dtm.addColumn(columna);
 		
-		for (Oferta o : OfertaService.getOfertasRecibidas(fecha)) {
+		ArrayList<Oferta> ofertas = OfertaService.getOfertasRecibidas();
+		
+		for (Oferta o : ofertas) {
 			String datos[] = new String[6];
 			datos[0] = o.get_fecha().toString();
 			datos[1] = o.get_inicio() + " a " + o.get_fin();
@@ -74,7 +78,7 @@ public class Application
 			dtm.addColumn(columna);
 		
 		 ArrayList<Oferta> mejoresOfertas = getMejoresOfertas(OfertaService.getOfertasRecibidas(fecha));
-		
+
 		for (Oferta o : mejoresOfertas) {
 			String datos[] = new String[6];
 			datos[0] = o.get_fecha().toString();
@@ -93,7 +97,8 @@ public class Application
 	private static ArrayList<Oferta> getMejoresOfertas(ArrayList<Oferta> ofertas)
 	{
 		ArrayList<Oferta> mejoresOfertas = new ArrayList<Oferta>();
-		
+		mejoresOfertas = Algoritmo.goloso(ofertas);
+		Collections.sort(mejoresOfertas,Comparador.porHorario());
 		return mejoresOfertas;
 	}
 }
