@@ -20,7 +20,7 @@ public class OptionsForm extends JPanel {
 		this.setLayout(null);
 
 		JButton btnCargarOfertas = new JButton("Cargar Ofertas");
-		btnCargarOfertas.setBounds(238, 51, 121, 23);
+		btnCargarOfertas.setBounds(238, 51, 160, 23);
 		btnCargarOfertas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cargarOfertas();
@@ -30,7 +30,7 @@ public class OptionsForm extends JPanel {
 		this.add(btnCargarOfertas);
 
 		JButton btnVerOfertas = new JButton("Ver Ofertas");
-		btnVerOfertas.setBounds(238, 85, 121, 23);
+		btnVerOfertas.setBounds(238, 85, 160, 23);
 		btnVerOfertas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				verOfertas();
@@ -38,6 +38,16 @@ public class OptionsForm extends JPanel {
 		});
 
 		add(btnVerOfertas);
+		
+		JButton btnVerMejoresOfertas = new JButton("Ver  Mejores Ofertas");
+		btnVerMejoresOfertas.setBounds(238, 120, 160, 23);
+		btnVerMejoresOfertas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				verMejoresOfertas();
+			}
+		});
+		
+		add(btnVerMejoresOfertas);
 	}
 	   
 	private void cargarOfertas() 
@@ -48,6 +58,11 @@ public class OptionsForm extends JPanel {
 	private void verOfertas()
 	{
 		new VerOfertasForm().setVisible(true);
+	}
+	
+	private void verMejoresOfertas() 
+	{
+		new VerMejoresOfertasForm().setVisible(true);
 	}
 
 	public void paint(Graphics g)

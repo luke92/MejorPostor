@@ -65,7 +65,7 @@ public class Application
 		return dtm;
 	}
 	
-	public static DefaultTableModel mostrarTablaMejoreOfertas(String fecha)
+	public static DefaultTableModel mostrarTablaMejoresOfertas(String fecha)
 	{
 		DefaultTableModel dtm = new DefaultTableModel();
 		Object columnNames[] = { "Fecha", "Horario", "Precio", "Banda", "Facilidades", "Telefono" };
@@ -73,8 +73,7 @@ public class Application
 		for (Object columna : columnNames)
 			dtm.addColumn(columna);
 		
-		ArrayList<Oferta> mejoresOfertas = OfertaService.getOfertasRecibidas(fecha);
-		mejoresOfertas = getMejoresOfertas(mejoresOfertas);
+		 ArrayList<Oferta> mejoresOfertas = getMejoresOfertas(OfertaService.getOfertasRecibidas(fecha));
 		
 		for (Oferta o : mejoresOfertas) {
 			String datos[] = new String[6];
@@ -94,6 +93,7 @@ public class Application
 	private static ArrayList<Oferta> getMejoresOfertas(ArrayList<Oferta> ofertas)
 	{
 		ArrayList<Oferta> mejoresOfertas = new ArrayList<Oferta>();
+		
 		return mejoresOfertas;
 	}
 }

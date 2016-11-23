@@ -39,18 +39,18 @@ public abstract class Comparador
 	{
 		return new Comparator<Oferta>() {
 			@Override
-			public int compare(Oferta uno, Oferta dos) {
-				if (horariosSePisan(uno, dos))
-					if ( (uno.get_precio())/(uno.get_fin()-uno.get_inicio()) > (dos.get_precio())/(dos.get_fin()-dos.get_inicio()))
-						return 1;
-					else
-						return -1;
-				return 0;
+			public int compare(Oferta uno, Oferta dos) 
+			{
+				double beneficioUno = (double) uno.get_precio()/ ((double) uno.get_fin() - (double) uno.get_inicio());
+				double beneficioDos = (double) dos.get_precio()/ ((double) dos.get_fin() - (double) dos.get_inicio());
+				if(beneficioUno == beneficioDos) return 0;
+				if ( beneficioUno < beneficioDos) return 1;
+				else return -1;
 			}
 		};
 	}
 	
-	private static boolean horariosSePisan(Oferta uno, Oferta dos)
+	public static boolean horariosSePisan(Oferta uno, Oferta dos)
 	{
 		if (mismoDia(uno, dos)) {
 			if ((uno.get_inicio() <= dos.get_inicio()) && (uno.get_fin() <= dos.get_inicio())
@@ -62,7 +62,7 @@ public abstract class Comparador
 		return true;
 	}
 
-	private static boolean mismoDia(Oferta uno, Oferta dos)
+	public static boolean mismoDia(Oferta uno, Oferta dos)
 	{
 		if (uno.get_fecha().isEqual(dos.get_fecha()))
 			return true;

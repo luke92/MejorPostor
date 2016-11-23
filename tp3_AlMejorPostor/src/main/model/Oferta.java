@@ -102,5 +102,12 @@ public class Oferta
 		result = prime * result + ((_telefono == null) ? 0 : _telefono.hashCode());
 		return result;
 	}
+
+	@Override
+	public String toString() {
+		return "Oferta [_fecha=" + _fecha + ", _inicio=" + _inicio + ", _fin=" + _fin + ", _precio=" + _precio
+				+ ", _banda=" + _banda + ", _telefono=" + _telefono + ", _facilidades=" + _facilidades + "]";
+	}
+	
 	
 }

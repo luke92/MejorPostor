@@ -101,16 +101,17 @@ public class ComparadorTest {
 		assertTrue(Comparador.porHorario().compare(o.get(3), o.get(4)) == 0);
 		assertTrue(Comparador.porHorario().compare(o.get(4), o.get(4)) == 1);
 	}
-
+	
+	@Test
 	public void porBeneficioTest()
 	{
 		Ofertas o = instancia2();
 
 		assertTrue(Comparador.porBeneficio().compare(o.get(0), o.get(0)) == 0);
-		assertTrue(Comparador.porBeneficio().compare(o.get(0), o.get(1)) == 0);
-		assertTrue(Comparador.porBeneficio().compare(o.get(0), o.get(4)) == 800);
-		assertTrue(Comparador.porBeneficio().compare(o.get(1), o.get(2)) == 700);
-		assertTrue(Comparador.porBeneficio().compare(o.get(2), o.get(3)) == 700);
+		assertTrue(Comparador.porBeneficio().compare(o.get(0), o.get(1)) == -1);
+		assertTrue(Comparador.porBeneficio().compare(o.get(0), o.get(4)) == 1);
+		assertTrue(Comparador.porBeneficio().compare(o.get(1), o.get(2)) == 1);
+		assertTrue(Comparador.porBeneficio().compare(o.get(2), o.get(3)) == -1);
 	}
 
 }
