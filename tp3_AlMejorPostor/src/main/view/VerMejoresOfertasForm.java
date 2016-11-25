@@ -26,7 +26,7 @@ public class VerMejoresOfertasForm extends JDialog
 	private JTable table;
 	private final JMenuBar menuBar = new JMenuBar();
 	private JDatePickerImpl datePicker;
-	private final JButton btnBuscar = new JButton("Buscar");
+	private final JButton btnBuscar = new JButton("Buscar por fecha");
 	private JScrollPane scrollPane;
 	
 	/**
@@ -50,7 +50,8 @@ public class VerMejoresOfertasForm extends JDialog
 	{
 		setTitle("Ver Mejores Ofertas");
 		
-		setBounds(100, 450, 450, 300);
+		
+		setBounds(100, 500, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -77,11 +78,6 @@ public class VerMejoresOfertasForm extends JDialog
 			}
 		});
 		menuBar.add(btnBuscar);
-	}
-	
-	public void cargarTabla()
-	{
-		table.setModel(Application.mostrarTablaOfertas());
 	}
 	
 	public void cargarTablaPorFecha()

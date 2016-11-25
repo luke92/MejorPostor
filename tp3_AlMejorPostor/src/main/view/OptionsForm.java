@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class OptionsForm extends JPanel {
@@ -25,7 +26,6 @@ public class OptionsForm extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				cargarOfertas();
 			}
-
 		});
 		this.add(btnCargarOfertas);
 
@@ -34,9 +34,9 @@ public class OptionsForm extends JPanel {
 		btnVerOfertas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				verOfertas();
+				JOptionPane.showMessageDialog(null, "Puede seleccionar una fecha para Ver las Ofertas de ese dia o simplemente Ver Todas");	
 			}
 		});
-
 		add(btnVerOfertas);
 		
 		JButton btnVerMejoresOfertas = new JButton("Ver  Mejores Ofertas");
@@ -44,9 +44,9 @@ public class OptionsForm extends JPanel {
 		btnVerMejoresOfertas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				verMejoresOfertas();
+				JOptionPane.showMessageDialog(null, "Seleccione una fecha para ver las Mejores Ofertas de ese dia");
 			}
 		});
-		
 		add(btnVerMejoresOfertas);
 	}
 	   

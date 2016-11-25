@@ -26,7 +26,7 @@ public class VerOfertasForm extends JDialog
 	private JTable table;
 	private final JMenuBar menuBar = new JMenuBar();
 	private JDatePickerImpl datePicker;
-	private final JButton btnBuscar = new JButton("Buscar");
+	private final JButton btnBuscar = new JButton("Buscar por fecha");
 	private final JButton btnVerTodas = new JButton("Ver Todas");
 	private JScrollPane scrollPane;
 	
@@ -50,7 +50,9 @@ public class VerOfertasForm extends JDialog
 	public VerOfertasForm()
 	{
 		setTitle("Ver Ofertas");
-		setBounds(100, 450, 450, 300);
+			
+		
+		setBounds(100, 300, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -71,19 +73,19 @@ public class VerOfertasForm extends JDialog
 		pnlDatePicker.add(datePicker);
 		menuBar.add(pnlDatePicker);
 		
-		btnVerTodas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				cargarTabla();
-			}
-		});
-		menuBar.add(btnVerTodas);
-		
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cargarTablaPorFecha();
 			}
 		});
 		menuBar.add(btnBuscar);
+		
+		btnVerTodas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cargarTabla();
+			}
+		});
+		menuBar.add(btnVerTodas);
 	}
 	
 	public void cargarTabla()
